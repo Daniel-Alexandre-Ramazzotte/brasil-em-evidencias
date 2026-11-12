@@ -11,7 +11,7 @@ export function IndicatorLibrary({ scope }: { scope?: string }) {
     [loading, setLoading] = useState(true);
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/api/indicators", { signal: controller.signal })
+    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/api/indicators`, { signal: controller.signal })
       .then((r) => {
         if (!r.ok) throw new Error();
         return r.json();

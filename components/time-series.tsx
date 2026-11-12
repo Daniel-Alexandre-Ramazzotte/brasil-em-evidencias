@@ -1,4 +1,5 @@
 "use client";
+import { SeriesLabLink } from "./series-lab-link";
 import { useId, useState } from "react";
 import { Download, Table2 } from "lucide-react";
 import {
@@ -367,6 +368,8 @@ export function TimeSeries({ indicator }: { indicator: Indicator }) {
           " O histórico distingue o período anterior a 1964 e a ditadura. O ano de 1985 inclui a transição Figueiredo/Sarney; 1990 e 1992 também tiveram mais de um presidente."}
       </p>
       <div className="series-actions">
+        <SeriesLabLink indicator={indicator} points={values} />
+        {indicator.secondary && <SeriesLabLink indicator={{...indicator,seriesName:indicator.secondary.name}} points={secondary} suffix="secundária" />}
         <button onClick={() => setTable(!table)} aria-expanded={table}>
           <Table2 size={16} />
           {table ? "Ocultar tabela" : "Ver tabela completa"}

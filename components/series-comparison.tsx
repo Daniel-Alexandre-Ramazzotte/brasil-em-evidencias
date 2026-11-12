@@ -1,4 +1,5 @@
 "use client";
+import { SeriesLabLink } from "./series-lab-link";
 import { useId, useState } from "react";
 import { PriceDisplayToggle } from "./price-display-toggle";
 import { usePrices } from "./database-data";
@@ -103,6 +104,7 @@ export function SeriesComparison({
   return (
     <section className="series-card comparison">
       <h2>Compare os indicadores no mesmo gráfico</h2>
+      <div className="series-actions">{active.map(d=><SeriesLabLink key={d.slug} indicator={d} points={d.points.filter(p=>p.year>=start&&p.year<=end)} suffix={d.seriesName}/>)}</div>
       {inputDatasets.some((d) => d.priceBasis === "nominal-brl") && (
         <PriceDisplayToggle real={real} onChange={setReal} />
       )}

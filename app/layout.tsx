@@ -11,6 +11,7 @@ import "./theme.css";
 import "./context.css";
 export const metadata: Metadata = {
   title: "Brasil em Evidências | Dados, contexto e fontes",
+  icons: {icon: [{url: (process.env.NEXT_PUBLIC_BASE_PATH||"")+"/favicon.svg", type:"image/svg+xml"}]},
   description:
     "Consulte indicadores públicos, documentos e explicações sobre pandemia e processos judiciais no Brasil.",
 };

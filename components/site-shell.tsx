@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Grid2X2 } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 export function Brand() {
   return (
@@ -26,6 +26,9 @@ export function SiteHeader() {
       <div className="nav wrap">
         <Brand />
         <nav aria-label="Navegação principal" className={open ? "open" : ""}>
+          <a href="/aplicativos/explorador-dados/" onClick={() => setOpen(false)}>Explorador de dados ↗</a>
+          <a href="/aplicativos/series-temporais/catalogo/" onClick={() => setOpen(false)}>Catálogo de séries ↗</a>
+          <a href="/aplicativos" onClick={() => setOpen(false)}><Grid2X2 size={15} aria-hidden="true" style={{display:"inline-block",verticalAlign:"middle",marginRight:6}}/>Aplicativos</a>
           <Link href="/indicadores" onClick={() => setOpen(false)}>
             Brasil Em Perspectiva
           </Link>
